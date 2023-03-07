@@ -1,0 +1,54 @@
+body{
+    background-image: url("../assets/new\ back.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #F5F5F5;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin: 0.5em;
+    color: rgb(111, 30, 30);
+  }
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 1em;
+  }
+  h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 1em;
+    cursor: pointer;
+  }
+  
+  input {
+    margin: 0.3em;
+    padding: 0.3em;
+    font-size: 1em;
+    border: 2px solid #000000;
+    border-radius: 5%;
+  }
+  
+  textarea {
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+    border: 5px solid #CCC;
+  }
+  input[type='date']
+  {
+    width:13%;
+    padding:0.3rem;
+  }
+
+

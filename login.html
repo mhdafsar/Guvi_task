@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+    <link rel="stylesheet" href="css/login.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+	<h1>Login</h1>
+	<form id="login-form">
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+        <label for ="register">Don't have an account?<a href="register.html"target="blank"> Register</a></label>
+		<input type="submit" onclick="login()"value="Login">
+	</form>
+    <script src="js/login.js"></script>
+	<p id="error-message"></p>
+</body>
+</html>

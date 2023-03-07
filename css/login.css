@@ -1,0 +1,56 @@
+* {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    background-image: url("../assets/new\ back.jpg");
+    background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+    color: #771e1e;
+}
+
+form {
+    border: 3px solid #000000;
+    background-color: #ffffff;
+    padding: 50px;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+input[type="submit"] {
+    background: #600909;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #22a396;
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}

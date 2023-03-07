@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile Page</title>
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <h1>My Profile Page</h1>
+  <h2>User Details</h2>
+  <div>
+    <h3>Name:</h3>
+    <form action="php/profile.php" method="post">
+    <input type="text" name="name" placeholder="Enter name" />
+  </div>
+  <div>
+    <h3>Age:</h3>
+    <input type="number" name="age" placeholder="Enter age" />
+  </div>
+  <div>
+    <h3>DOB:</h3>
+    <input type="date" name="DOB" placeholder="Enter date of birth" />
+  </div>
+  <div>
+    <h3>Contact:</h3>
+    <input type="number" name="Contact" placeholder="Contact no." />
+  </div>
+  <div>
+    <h4>
+    <input type="submit" onclick="profile()" value="Update">
+    </h4> 
+  </div>
+</form>
+  <script src="js/profile.js"></script>
+ 
+  
+</body>
+</html>
