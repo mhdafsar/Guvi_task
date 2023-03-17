@@ -1,44 +1,33 @@
-<?php
-// define variables and set to empty values
-$nameErr = $emailErr = $passwordErr = "";
-$name = $email = $password = "";
+<?php 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-  } else {
-    $name = test_input($_POST["name"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed";
-    }
-  }
-  
-  if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
-    $email = test_input($_POST["email"]);
-    // check if email address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format";
-    }
-  }
-    
-  if (empty($_POST["password"])) {
-    $passwordErr = "Password is required";
-  } else {
-    $password = test_input($_POST["password"]);
-    // check if password is at least 8 characters long and contains at least one uppercase letter, one lowercase letter, and one number
-    if (strlen($password) < 8 || !preg_match("/[A-Z]/",$password) || !preg_match("/[a-z]/",$password) || !preg_match("/[0-9]/",$password)) {
-      $passwordErr = "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number";
-    }
-  }
-}
+if(isset($_POST['register'])){
+	$username   = $_POST['username'];
+	$email  = $_POST['email'];
+	$pass   = $_POST['password'];
+	$pass_c = $_POST['confirm_password'];
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
+	if($pass == $pass_c){ 
+		
+		// Connect to Redis 
+		$redis = new Redis();
+		$redis->connect('localhost', 6379);
+		
+		// Store user details in Redis 
+		$redis->hmset($username, array('email' => $email, 'password' => $pass));
+
+		// Connect to MongoDB 
+		$mongo = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+
+		// Store user details in MongoDB
+		$bulk = new MongoDB\Driver\BulkWrite;
+		$bulk->insert(['username' => $username, 'email' => $email]);
+
+		$mongo->executeBulkWrite('users.users', $bulk);
+		
+		echo "Registration successful";
+		
+	} else {
+		echo "Passwords do not match";
+	}
 }
 ?>
